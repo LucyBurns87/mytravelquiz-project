@@ -1,140 +1,172 @@
 
+/* === General Body Styles === */
 body {
     background-image: url('./images/Travelpic.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
     margin: 0;
-    overflow: auto;
+    padding: 0;
+    font-family: Cambria, serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    font-family: Cambria;
+    justify-content: flex-start;
+    /* Add a subtle overlay for readability */
+    position: relative;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.container {
-    height: fit-content;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 50px;
-    background-color: rgb(229, 236, 240);
-    box-shadow: 0 0 10px 2px;
-    padding: 20px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.5em;
-}
-
-.result {
-    color: orange;
-    text-align: center;
-    font-size: 2vh;
-    margin-top: 20px;
-}   
-
+/* === Header Styles === */
 .header {
-    color: orange;
+    color: #ff9800;
     text-align: center;
-    font-size: 9vh;
+    font-size: 4vw;
+    margin-top: 2vh;
+    text-shadow: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: 4px solid #ff9800;
+    padding-bottom: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 0 0 24px 24px;
+    z-index: 1;
 }
 
 .subheader {
-    color: rgb(236, 138, 10);
+    color: #e65100;
     text-align: center;
-    font-size: 3vh;
+    font-size: 2vw;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    z-index: 1;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.5);
+    border-left: 6px solid #ff9800;
+    border-right: 6px solid #ff9800;
+    border-radius: 18px;
+    padding: 12px 0;
+    box-shadow: 0 2px 12px 0 rgba(255,152,0,0.15);
 }
 
 .h3 {
     color: orange;
     text-align: center;
-    font-size: 4vh;
+    font-size: 2vw;
+    margin-bottom: 2vh;
+    z-index: 1;
 }
 
+/* === Main Quiz Container === */
+.container {
+    width: 90vw;
+    max-width: 420px;
+    border-radius: 30px;
+    background-color: rgba(229, 236, 240, 0.95);
+    box-shadow: 0 4px 24px 2px rgba(0,0,0,0.15);
+    padding: 32px 24px 24px 24px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
+    margin: 2vh 0;
+    z-index: 1;
+}
 
+/* === Quiz Question === */
+.quiz {
+    color: #fff;
+    background: linear-gradient(90deg, #ff9800 0%, #ffb74d 100%);
+    text-align: center;
+    font-size: 1.5em;
+    min-height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px 0 rgba(255,152,0,0.15);
+    font-weight: bold;
+    padding: 18px 12px;
+    letter-spacing: 1px;
+    border: 2px solid #ff9800;
+}
+
+/* === Answer Buttons Grid === */
 .btn-grid {
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 10px 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0;
 }
 
 .btn {
     background-color: orange;
     border: 2px solid green;
-    border-radius: 6px;
-    box-shadow: 0 0 5px 1px;
-    padding: 10px;
-    font-weight: bolder;
-}
-
-.answer-buttons button {
-    padding: 2em;
-    font-size: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px 1px rgba(0,0,0,0.08);
+    padding: 14px 10px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    outline: none;
+    z-index: 1;
 }
 
 .btn.correct {
-    background-color: lightgreen;
-    border-color: green;
+    background-color: #b6fcb6;
+    border-color: #2e8b57;
+    color: #1a3d1a;
 }
 
 .btn.wrong {
-    background-color: pink;
-    border-color: red;
+    background-color: #ffd6d6;
+    border-color: #d32f2f;
+    color: #7a1a1a;
 }
 
-.btn:hover {
-    border-color: black;
+.btn:hover:not(:disabled) {
+    border-color: #000;
+    background-color: #ffb84d;
     cursor: pointer;
+    transform: translateY(-2px) scale(1.03);
 }
 
-
-.btn:not(.nohover):hover {
-    border-color: black;
-    cursor: pointer;
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
+/* === Controls (Navigation Buttons) === */
 .controls {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 18px;
+    margin-top: 10px;
 }
 
-.hide {
-    display: none;
+.prev-btn, .next-btn, .start-btn {
+    min-width: 90px;
 }
 
-.quiz {
-    height: fit-content;
-    color: orange;
-    text-align: center;
-    font-size: 2vh;
-    min-height: 8em; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.GoodLuck {
-    color: orange;
-    text-align: center;
-    font-size: 10vh;
-}
-
+/* === Score Area === */
 .score-area {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 10px 20px;
+    margin-bottom: 18px;
+    padding: 10px 22px;
     background: #f9f9f9;
-    border-radius: 12px;
-    font-size: 1.2em;
+    border-radius: 14px;
+    font-size: 1.1em;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.07);
 }
 
 #question-count {
@@ -142,5 +174,43 @@ body {
     font-weight: bold;
     margin-left: 20px;
 }
+
+/* === Result Message === */
+.result {
+    color: orange;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 24px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* === Footer Good Luck Message === */
+.GoodLuck {
+    color: orange;
+    text-align: center;
+    font-size: 3vw;
+    margin: 3vh 0 1vh 0;
+    text-shadow: 1px 1px 8px #fff, 0 2px 8px #aaa;
+    z-index: 1;
+}
+
+/* === Responsive Design === */
+@media (max-width: 600px) {
+    .container {
+        padding: 18px 6px 12px 6px;
+        font-size: 0.95em;
+    }
+    .header, .GoodLuck {
+        font-size: 7vw;
+    }
+    .subheader, .h3 {
+        font-size: 4vw;
+    }
+    .result {
+        font-size: 1.2em;
+    }
+}
+
 
 
