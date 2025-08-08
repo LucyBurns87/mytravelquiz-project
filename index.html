@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags for browser and SEO -->
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+        <!-- meta tags for search engines -->
+    <meta name="author" content="Lucy Burns">
+    <meta 
+    name="description" 
+    content="Travel quiz for fans to test their knowledge.">
+    <meta 
+    name="keywords" 
+    content="Travel Quiz. Holiday Quiz. Countries Quiz.">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <link rel="stylesheet" href="index.css">
+
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. 
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- CSS reset for consistent styling -->
+    <link rel="stylesheet" type="text/css" href="./reset.css">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Travel Quiz</title>
+  </head>
+  <body>
+    <!-- Main app container for quiz UI -->
+    <div id="app"></div>
+     <!-- Quiz header and instructions -->
+      <header>
+        <!-- Main quiz title -->
+        <h1 class="header">
+            Love to Travel!! This Quiz is for you!!
+        </h1>
+        <!-- Quiz rules and instructions -->
+         <h2 class="subheader">Quiz Rules:<br>
+                You will receive 1 point for each correct answer.<br>
+                You can score a total of 10 points.<br>
+                You will have 10 random questions to answer.<br></h2>
+                <br>
+                <br>
+                
+          <h3 class ="h3"> Press the START button to start the quiz. </h3>
+    </header>
+    <!-- Score area (hidden by default, shown during quiz) -->
+        <section class= "scorearea hide" id="scorearea">
+                <p id="score">Score: 0</p>
+                <div id="question-count">Questions left: 10</div>
+            </div>
+        </section>
+
+
+    <!-- Footer with good luck message -->
+    <footer class="GoodLuck">GOOD LUCK !!</footer>
+    
+    <!-- JavaScript link at bottom of body so everything loads first -->
+    <script src="index.js"></script>
+  
+
+
+
+
+  </body>
+</html>
