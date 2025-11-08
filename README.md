@@ -32,4 +32,4 @@ w3css validator
 
 
 Deployment 
-TO FOLLOW  
+https://lucyburns87.github.io/mytravelquiz-project/
